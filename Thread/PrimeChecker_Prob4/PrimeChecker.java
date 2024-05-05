@@ -1,0 +1,31 @@
+package Thread.PrimeChecker_Prob4;
+public class PrimeChecker extends Thread{
+    private int start;
+    private int end;
+    public PrimeChecker(int start,int end){
+        this.start = start;
+        this.end = end;
+    }
+    public void run(){
+        for(int i=start; i<=end; i++){
+            if(isPrime(i)){
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public boolean isPrime(int anInt){
+        if(anInt <= 1){
+            return false;
+        }
+        if(anInt == 2){
+            return true;
+        }
+        for(int i=2; i<anInt; i++){
+            if(anInt % 2 == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
